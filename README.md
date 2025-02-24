@@ -46,6 +46,16 @@ This is the frontend for the MovieBase System built with **Angular 17**. It prov
    ng serve
    ```
 
+### Test Credentials
+Use the following credentials to test the application:
+
+| Role      | Email               | Password  |
+|-----------|---------------------|----------|
+| **Admin** | admin               | admin123 |
+| **User**  | mo@gmail.com        | 123456  |
+
+
+
 ### Deployment
 - Build the project:
   ```bash
