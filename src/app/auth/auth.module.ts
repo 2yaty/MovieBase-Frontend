@@ -19,7 +19,8 @@ import { SignupComponent } from './signup/signup.component';
     MatButtonModule,
     MatProgressSpinnerModule,
     RouterModule.forChild([
-      { path: '', component: LoginComponent }
+      { path: '', component: LoginComponent },
+      { path: 'signup', component: SignupComponent }
     ])
   ]
 })

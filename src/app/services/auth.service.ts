@@ -27,6 +27,15 @@ export class AuthService {
       );
   }
 
+  signup(username: string, password: string, firstName: string, lastName: string): Observable<void> {
+    return this.http.post<void>(`${this.API_URL}/register`, {
+      username,
+      password,
+      firstName,
+      lastName
+    });
+  }
+
   logout(): void {
     localStorage.removeItem('token');
     this.currentUserSubject.next(null);
@@ -46,7 +55,7 @@ export class AuthService {
         id: decoded.id,
         username: decoded.sub,
         firstName: decoded.firstName,
-        role: decoded.roles
+        role: decoded.role
       };
       this.currentUserSubject.next(user);
     } catch (error) {

@@ -39,3 +39,17 @@ button {
 mat-spinner {
   margin: 0 auto;
 }
+
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.signup-link a {
+  color: #3f51b5;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

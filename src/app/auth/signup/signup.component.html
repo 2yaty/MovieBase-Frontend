@@ -1,1 +1,73 @@
-<p>signup works!</p>
+<div class="signup-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Create Account</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input title="username" matInput formControlName="username" type="email" required>
+            <mat-error *ngIf="signupForm.get('username')?.errors?.['required']">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('username')?.errors?.['email']">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input title="firstname" matInput formControlName="firstName" type="text" required>
+            <mat-error *ngIf="signupForm.get('firstName')?.errors?.['required']">
+              First name is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input title="lastname" matInput formControlName="lastName" type="text" required>
+            <mat-error *ngIf="signupForm.get('lastName')?.errors?.['required']">
+              Last name is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input title="password" matInput formControlName="password" type="password" required>
+            <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input title="conf-password" matInput formControlName="confirmPassword" type="password" required>
+            <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
+              Please confirm your password
+            </mat-error>
+            <mat-error *ngIf="signupForm.errors?.['mismatch']">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+  
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit" 
+            [disabled]="signupForm.invalid || loading">
+            <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+            <span *ngIf="!loading">Sign Up</span>
+          </button>
+  
+          <div class="login-link">
+            Already have an account? <a routerLink="/login">Login here</a>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
