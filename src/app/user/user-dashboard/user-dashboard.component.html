@@ -1,0 +1,14 @@
+<div class="dashboard-container">
+  <mat-toolbar color="primary">
+    <span>Welcome, {{firstName}}!</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </mat-toolbar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

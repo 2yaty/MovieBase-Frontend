@@ -1,0 +1,48 @@
+<div class="movie-details-container">
+  <button mat-button (click)="goBack()" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Movies
+  </button>
+
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="movie-details" *ngIf="movie && !loading">
+    <div class="poster-container">
+      <img title="movie poster" [src]="omdbMovie?.Poster" [alt]="omdbMovie?.Title">
+    </div>
+
+    <div class="info-container">
+      <h1>{{omdbMovie?.Title}}</h1>
+      <p class="year">{{omdbMovie?.Year}}</p>
+      
+      <div class="plot">
+        <h2>Plot</h2>
+        <p>{{omdbMovie?.Plot}}</p>
+      </div>
+
+      <div class="rating-section">
+        <h2>Your Rating</h2>
+        <div class="rating-controls">
+          <mat-slider>
+            <input title="slider" matSliderThumb
+              [min]="1"
+              [max]="5"
+              [step]="0.5"
+              [value]="userRating || 0"
+              (valueChange)="onRatingChange($event)">
+          </mat-slider>
+          <span class="rating-value">{{userRating || 'Not rated'}}</span>
+          <button 
+            mat-icon-button 
+            color="warn" 
+            (click)="deleteRating()"
+            *ngIf="userRating !== null">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

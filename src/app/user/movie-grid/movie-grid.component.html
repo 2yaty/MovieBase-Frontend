@@ -1,0 +1,30 @@
+<div class="movie-grid-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search Movies</mat-label>
+    <input matInput [formControl]="searchControl" placeholder="Enter movie title...">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="movie-grid" *ngIf="!loading">
+    <mat-card *ngFor="let movie of movies" (click)="viewDetails(movie.id!)">
+      <img title="movie poster" mat-card-image [src]="movie.poster" [alt]="movie.title">
+      <mat-card-content>
+        <h3>{{movie.title}}</h3>
+        <p>{{movie.year}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-paginator
+    [length]="totalMovies"
+    [pageSize]="12"
+    [pageSizeOptions]="[12, 24, 36]"
+    [pageIndex]="currentPage"
+    (page)="onPageChange($event)"
+    *ngIf="totalMovies > 0">
+  </mat-paginator>
+</div>

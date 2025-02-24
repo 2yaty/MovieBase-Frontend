@@ -1,0 +1,52 @@
+.movie-list-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.actions {
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.movie-poster {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.mat-column-select {
+  width: 48px;
+}
+
+.mat-column-poster {
+  width: 80px;
+}
+
+.mat-column-year {
+  width: 100px;
+}
+
+.mat-column-actions {
+  width: 60px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

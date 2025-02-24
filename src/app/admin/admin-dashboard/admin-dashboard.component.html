@@ -1,0 +1,30 @@
+<div class="admin-container">
+  <mat-toolbar color="primary">
+    <span>Admin Dashboard</span>
+  </mat-toolbar>
+
+  <div class="content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Search OMDB Movies</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-movie-search (moviesSelected)="onMoviesSelected($event)"></app-movie-search>
+      </mat-card-content>
+      <mat-card-actions *ngIf="selectedMovies.length > 0">
+        <button mat-raised-button color="primary" (click)="addToDatabase(selectedMovies)">
+          Add Selected to Database
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Database Movies</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-movie-list (deleteMovies)="deleteFromDatabase($event)"></app-movie-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

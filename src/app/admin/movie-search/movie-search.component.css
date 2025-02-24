@@ -1,0 +1,27 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-poster {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-select {
+  width: 48px;
+}
+
+.mat-column-poster {
+  width: 80px;
+}
+
+.mat-column-year {
+  width: 100px;
+}

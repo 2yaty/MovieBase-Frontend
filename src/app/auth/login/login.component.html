@@ -1,0 +1,39 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Movie Base Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input title="username" matInput formControlName="username" type="text" required>
+          <mat-error *ngIf="loginForm.get('username')?.errors?.['required']">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input title="password" matInput formControlName="password" type="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Password must be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit" 
+          [disabled]="loginForm.invalid || loading">
+          <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+          <span *ngIf="!loading">Login</span>
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
