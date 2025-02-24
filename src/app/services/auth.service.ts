@@ -55,7 +55,7 @@ export class AuthService {
         id: decoded.id,
         username: decoded.sub,
         firstName: decoded.firstName,
-        role: decoded.role
+        role: decoded.roles
       };
       this.currentUserSubject.next(user);
     } catch (error) {
